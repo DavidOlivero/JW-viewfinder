@@ -1,0 +1,55 @@
+{
+  "build": {
+    "beforeDevCommand": "pnpm start",
+    "beforeBuildCommand": "pnpm build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist/jw-viewfinder/browser"
+  },
+  "package": {
+    "productName": "JW viewfinder",
+    "version": "0.0.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "shell": {
+        "all": false,
+        "open": true
+      },
+      "dialog": {
+        "all": true
+      },
+      "window": {
+        "all": true
+      },
+      "fs": {
+        "all": true,
+        "scope": ["$APPDATA/*"]
+      },
+      "path": {
+        "all": true
+      }
+    },
+    "windows": [
+      {
+        "title": "JW viewfinder",
+        "maximized": true,
+        "theme": "Dark",
+        "width": 1300,
+        "height": 800,
+        "url": "index.html"
+      }
+    ],
+    "security": {
+      "csp": null
+    },
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "identifier": "com.tauri.build",
+      "icon": [
+        "icon/icon.ico"
+      ]
+    }
+  }
+}

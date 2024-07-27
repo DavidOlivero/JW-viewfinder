@@ -1,0 +1,86 @@
+#continer {
+    padding: 20px;
+    margin: 20px;
+    
+    button {
+        width: 7%;
+        height: 10%;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        padding: 10px;
+        margin: 20px;
+        border-radius: 10px;
+        background-color: #001e5e5d;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    button:hover {
+        background-color: #0012355d;
+    }
+
+    section {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+    }
+
+    .ebook {
+        background-color: #fff;
+        border: 2px solid #6d6c6c;
+        width: 260px;
+        height: 400px;
+        color: #000;
+        border-radius: 10px;
+        text-overflow: ellipsis;
+        text-align: center;
+
+        h2 {
+            margin: 5px;
+            text-overflow: ellipsis;
+        }
+
+        .shimmer {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #f0f0f0 0%, #e0e0e0 20%, #f0f0f0 40%, #f0f0f0 100%);
+            background-size: 200% 100%;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .image-placeholder, img {
+            width: 100%;
+            height: 300px;
+            border-radius: 10px 10px 0 0;
+        }
+    }
+
+    .selectable {
+        transition: color 500ms, transform 500ms;
+    }
+
+    .selectable:hover {
+        transform: scale(1.10,1.10);
+        cursor: pointer;
+    }
+
+    .non {
+        opacity: 0.5;
+    }
+
+    .ready {
+        opacity: 1;
+    }
+
+    a {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}

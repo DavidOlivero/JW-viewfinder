@@ -1,0 +1,22 @@
+<div id="continer">
+    <button (click)="openEpubFile()" title="Cargar un libro"><img src="../assets/icons/plus.svg" alt="Ícono de un más para agregar un epub"></button>
+
+    <section>
+        @for (book of eBooksList; track $index) {
+            <div class="ebook selectable" (click)="saveIdBook(book.title)" [routerLink]="'/viewfinder/' + book.title">
+                <img [src]="book.coverPath" alt="Covertura del libro" id="iamge">
+                <h2>{{book.title}}</h2>
+            </div>
+        }
+
+        @if (aBook) {
+            <div class="ebook non">
+                <div class="image-placeholder">
+                    <div class="shimmer"></div>
+                </div>
+                <h2>Cargando libro</h2>
+            </div>
+        }
+    </section>
+</div>
+

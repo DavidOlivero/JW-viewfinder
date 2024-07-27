@@ -1,0 +1,21 @@
+
+<div id="continer">
+    <div id="controls">
+        <a id="arrow" [routerLink]="'/'" title="Regresar">
+            <img src="../../assets/icons/arrow_left.svg" alt="Botón en forma de flecha par devolverse">
+        </a>
+        <a id="screen" (click)="openViewfinderWindow()" title="Abrir visor">
+            <img src="../../assets/icons/screen.svg" alt="Botón en forma de pantalla para abrir el previsualizador">
+        </a>
+        <a id="share" (click)="showTextInViewFinder()" title="Mostrar en el visor">
+            <img src="../../assets/icons/share.svg" alt="Botón en forma de flecha de compartir para mostrar el texto en el previsualizador">
+        </a>
+        <a id="hide" (click)="hideTextInViewFinder()" title="Esconder texto">
+            <img src="../../assets/icons/hide.svg" alt="Botón en forma de ojo para esconder el texto del visualizador">
+        </a>
+        <a id="close" (click)="closeViewfinderWindow()" title="Cerrar vizualizador">
+            <img src="../../assets/icons/close.svg" alt="Botón en forma de x para cerrar el visualizador">
+        </a>
+    </div>
+    <iframe [src]="src" width="100%" height="100%"></iframe>
+</div>

@@ -1,5 +1,6 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+#[macro_use] extern crate rocket;
 
 pub mod book_management {
     pub mod file_decompression;
@@ -18,6 +19,10 @@ pub mod path_management {
 
 pub mod windows {
     pub mod viewfinder_book;
+}
+
+pub mod server {
+    pub mod files_server;
 }
 
 use tauri::WindowEvent;

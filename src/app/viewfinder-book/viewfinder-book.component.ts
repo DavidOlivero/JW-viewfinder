@@ -5,7 +5,6 @@ import { ActivatedRoute } from "@angular/router";
 import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
 import { invoke } from "@tauri-apps/api";
 import { GetEpubTextService } from "../services/get-epub-text.service";
-import { appLocalDataDir } from "@tauri-apps/api/path";
 
 @Component({
   selector: 'app-viewfinder-book',
@@ -34,11 +33,9 @@ export class ViewfinderBookComponent implements OnInit {
   }
 
   async getUrl(): Promise<SafeResourceUrl> {
-    const folderPath = await appLocalDataDir()
-
-    const bookNav = await invoke<string>("get_nav_page", { epubFolder: folderPath, folderName: this.id })
+    const bookNav = await invoke<string>("get_nav_page", { folderName: this.id })
       .catch(err => alert(err))
-    return this.sanitizer.bypassSecurityTrustResourceUrl(`http://127.0.0.1:8080/epub/${this.id}/OEBPS/${bookNav}`)
+    return this.sanitizer.bypassSecurityTrustResourceUrl(`http://127.0.0.1:8000/resources/${this.id}/OEBPS/${bookNav}`)
   }
 
   async openViewfinderWindow() {

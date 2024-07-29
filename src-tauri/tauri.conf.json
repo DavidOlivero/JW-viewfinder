@@ -37,7 +37,7 @@
         "theme": "Dark",
         "width": 1300,
         "height": 800,
-        "url": "index.html"
+        "url": "http://localhost:1420"
       }
     ],
     "security": {
@@ -46,7 +46,7 @@
     "bundle": {
       "active": true,
       "targets": "all",
-      "identifier": "com.tauri.build",
+      "identifier": "com.tauri.dev",
       "icon": [
         "icon/icon.ico"
       ]

@@ -7,9 +7,9 @@ pub enum ProcessResult<'a> {
     Right
 }
 
-pub async fn unzip_epub_files<'a>(epub_folder: &str, epub_file: &str, folder_name: &str) -> Result<bool, &'a str> {
+pub async fn unzip_epub_files(epub_file: &str, folder_name: &str) -> Result<bool, &'static str> {
     // Make the full path
-    let path = match get_assets_path::assets_path(epub_folder, folder_name) {
+    let path = match get_assets_path::assets_path(folder_name) {
         Err(err) => return Err(err),
         Ok(path) => path
     };

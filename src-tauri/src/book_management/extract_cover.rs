@@ -3,8 +3,8 @@ use std::fs::{self, File};
 use std::io::Write;
 use super::super::path_management::get_assets_path;
 
-pub fn get_epub_cover<'a>(epub_folder: &str, epub_file: &str, folder_name: &str) -> Result<(), &'a str> {
-    let image_path = match get_assets_path::assets_path(epub_folder, folder_name) {
+pub fn get_epub_cover(epub_file: &str, folder_name: &str) -> Result<(), &'static str> {
+    let image_path = match get_assets_path::assets_path(folder_name) {
         Err(err) => return Err(err),
         Ok(val) => val
     };

@@ -2,8 +2,8 @@ use super::super::path_management::get_assets_path;
 use std::fs::{self, read_dir, File};
 use std::io::Read;
 
-pub async fn add_htmx_selection_handle<'a>(epub_folder: &str, folder_name: &str) -> Result<(), &'a str> {
-    let path = match get_assets_path::assets_path(epub_folder, folder_name) {
+pub async fn add_htmx_selection_handle(folder_name: &str) -> Result<(), &'static str> {
+    let path = match get_assets_path::assets_path(folder_name) {
         Err(err) => return Err(err),
         Ok(val) => val
     };

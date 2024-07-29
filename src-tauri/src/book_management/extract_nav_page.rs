@@ -1,8 +1,8 @@
 use super::super::path_management::get_assets_path;
 use std::fs::read_dir;
 
-pub async fn nav_page<'a>(epub_folder: &str, folder_name: &str) -> Result<String, &'a str> {
-    let folder_path = match get_assets_path::assets_path(epub_folder, folder_name) {
+pub async fn nav_page(folder_name: &str) -> Result<String, &str> {
+    let folder_path = match get_assets_path::assets_path(folder_name) {
         Err(err) => return Err(err),
         Ok(val) => val
     };

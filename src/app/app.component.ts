@@ -14,18 +14,20 @@ import { appLocalDataDir, localDataDir } from "@tauri-apps/api/path";
 export class AppComponent implements OnInit, OnDestroy {
   async ngOnInit() {
     let status = localStorage.getItem('serverstatus')
-    let LocalDataDir = await appLocalDataDir()
 
     if (status === null) {
       localStorage.setItem('serverstatus', JSON.stringify(false))
     } else {
       if (!JSON.parse(status)) {
-        await invoke('start_server', {"localDataDir": LocalDataDir})
+        localStorage.setItem('serverstatus', 'true')
+        status = 'true'
+        await invoke('start_server')
       }
     }
   }
 
   ngOnDestroy(): void {
+    console.log("Destruyendo proceso principal")
     localStorage.setItem('serverstatus', JSON.stringify(false))
   }
 }

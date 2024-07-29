@@ -5,7 +5,6 @@ import { invoke } from "@tauri-apps/api/tauri";
 import { open } from "@tauri-apps/api/dialog";
 import { Book } from "../models/book";
 import { DomSanitizer } from "@angular/platform-browser";
-import { appLocalDataDir } from "@tauri-apps/api/path";
 
 @Component({
   selector: 'app-upload-books',
@@ -27,7 +26,6 @@ export class UploadBooksComponent {
   }
   
   async openEpubFile() {
-    const epbuFolder = await appLocalDataDir()
     const epubFile = await open({
       multiple: false,
       filters: [{
@@ -57,12 +55,12 @@ export class UploadBooksComponent {
 
       this.aBook = true
 
-      await invoke<boolean>("upload_book", {"epubFolder": epbuFolder, "epubFile": epubFile, "folderName": folderPath})
+      await invoke<boolean>("upload_book", {"epubFile": epubFile, "folderName": folderPath})
           .then((val) => {
             this.isLoaded = val
             this.aBook = false
             
-            const imageUrl = 'http://127.0.0.1:8080/image?foldername=' + folderPath
+            const imageUrl = 'http://127.0.0.1:8000/resources/' + folderPath + '/cover.png'
             this.eBooksList.push(new Book(eBookName, imageUrl))
             localStorage.setItem("books", JSON.stringify(this.eBooksList))
           })

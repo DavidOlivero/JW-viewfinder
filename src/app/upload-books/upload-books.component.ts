@@ -19,8 +19,6 @@ export class UploadBooksComponent {
   aBook = false
   rout = ''
 
-  constructor(private sanitizer: DomSanitizer) {}
-
   ngOnInit(): void {
     this.eBooksList = JSON.parse(localStorage.getItem('books') || '[]')
   }

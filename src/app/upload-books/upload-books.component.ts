@@ -73,8 +73,4 @@ export class UploadBooksComponent {
   async openWiewFinder() {
     await invoke("viewfinder")
   }
-
-  deleteLocalStorage() {
-    localStorage.clear()
-  }
 }

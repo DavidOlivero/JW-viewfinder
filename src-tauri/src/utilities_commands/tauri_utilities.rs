@@ -46,8 +46,9 @@ pub async fn get_nav_page(folder_name: &str) -> Result<String, String> {
 }
 
 #[tauri::command]
-pub async fn start_server() {
-    println!("Iniciando servidor");
-    
-    let _ = files_server::rocket().launch().await;
+pub async fn start_server() -> Result<(), &'static str> {
+    match files_server::rocket().launch().await {
+        Err(_) => return Err("No fue posible iniciar el servidor"),
+        _ => Ok(())
+    }
 }
